@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Spoon Kitchen & Cafe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #3d2817;
+            background-color: #fffbf5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+            color: #d4a574;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        nav a, nav button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #3d2817;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav button:hover {
+            color: #d4a574;
+        }
+
+        nav .call-btn {
+            background-color: #d4a574;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        nav .call-btn:hover {
+            color: white;
+            background-color: #c17a6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663487079569/gGLtCezYpoxwhP8ttbJJaQ/hero-background-ZYFw4At3U6QU6RBNcZM6A6.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #d4a574;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #c17a6b;
+            box-shadow: 0 4px 12px rgba(193, 122, 107, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #c17a6b;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #a86a5a;
+            box-shadow: 0 4px 12px rgba(168, 106, 90, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background-color: white;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .testimonial:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .stars {
+            color: #d4a574;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #d4a574;
+        }
+
+        /* Dishes Section */
+        .dishes {
+            background-color: #f5f0eb;
+        }
+
+        .dishes-image {
+            width: 100%;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .dish-names {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .dish-item h3 {
+            color: #d4a574;
+            margin-bottom: 0.5rem;
+        }
+
+        .dish-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Location Section */
+        .location {
+            background-color: white;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .info-item svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #d4a574;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .info-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Lead Form */
+        .lead-form {
+            background-color: #f5f0eb;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.375rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #d4a574;
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #d4a574;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #c17a6b;
+        }
+
+        /* Atmosphere */
+        .atmosphere {
+            background-color: white;
+        }
+
+        .atmosphere-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .atmosphere-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .atmosphere-grid .order-2 {
+                order: 2;
+            }
+
+            .atmosphere-grid .order-1 {
+                order: 1;
+            }
+        }
+
+        .atmosphere-image {
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .atmosphere-content h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem 0;
+            color: #d4a574;
+        }
+
+        .atmosphere-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            position: relative;
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663487079569/gGLtCezYpoxwhP8ttbJJaQ/cta-banner-hJK43VjQcW8WrRW7TsXnXs.webp');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-banner .container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-banner h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-banner .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3d2817;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 3rem 0;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #d4a574;
+        }
+
+        footer .divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Menu Page */
+        .menu-header {
+            background: linear-gradient(to right, rgba(212, 165, 116, 0.1), rgba(193, 122, 107, 0.1));
+            border-bottom: 2px solid rgba(212, 165, 116, 0.2);
+            padding: 4rem 0;
+        }
+
+        .menu-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .menu-content {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .menu-categories {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .category-btn {
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            background-color: rgba(193, 122, 107, 0.3);
+            color: #3d2817;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active {
+            background-color: #d4a574;
+            color: white;
+            font-weight: 600;
+        }
+
+        .category-btn:hover {
+            background-color: rgba(212, 165, 116, 0.5);
+        }
+
+        .menu-items {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .menu-items h2 {
+            text-align: left;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            transition: background-color 0.2s;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+
+        .menu-item:hover {
+            background-color: rgba(212, 165, 116, 0.05);
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .menu-item-name {
+            font-weight: 600;
+            color: #3d2817;
+            flex: 1;
+        }
+
+        .menu-item-price {
+            color: #d4a574;
+            font-weight: 700;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.75rem;
+            }
+
+            nav .nav-links {
+                gap: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Thai Spoon Kitchen</h1>
+            <div class="nav-links">
+                <button onclick="showPage('home')" style="cursor: pointer;">Home</button>
+                <button onclick="showPage('menu')" style="cursor: pointer;">Menu</button>
+                <a href="tel:+60165766612" class="call-btn">Call Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Authentic Thai Flavors, Right Here in Town 🇹🇭</h1>
+                <p>Fresh ingredients, bold spices, and a cozy cafe experience — loved by locals and visitors alike.</p>
+                <div class="buttons">
+                    <button class="btn btn-primary" onclick="showPage('menu')">View Menu</button>
+                    <button class="btn btn-secondary" onclick="window.open('https://www.google.com/maps/place/Thai+Spoon+Kitchen+%26+Cafe/@4.2472753,117.855554,17427m/data=!3m1!1e3!4m10!1m2!2m1!1srestaurants!3m6!1s0x32159d788d0356ad:0x35b6de7c03e571cf!8m2!3d4.2734663!4d117.8976586!15sCgtyZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBD3RoYWlfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMTRjVmxVVGxOWlZGWktaVWRqZVdGcVRtNWxSRTUzWTJwS1YxTnNSUkFC4AEA-gEFCJ8BEEc!16s%2Fg%2F11vc87f0zf?entry=ttu', '_blank')">Visit Us Today</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof -->
+        <section class="social-proof">
+            <div class="container">
+                <h2>Loved by Food Lovers ❤️</h2>
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <span style="color: #d4a574; font-size: 1.5rem;">★★★★★</span>
+                </div>
+                <p class="section-subtitle">Join hundreds of satisfied customers who've experienced authentic Thai cuisine</p>
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p>"Best Thai food I've had in Malaysia — super authentic!"</p>
+                        <div class="testimonial-author">— Sarah Chen</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p>"Cozy vibe, amazing flavors. Will come again!"</p>
+                        <div class="testimonial-author">— Michael Rodriguez</div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="stars">★★★★★</div>
+                        <p>"Their tom yum is a must-try 🔥"</p>
+                        <div class="testimonial-author">— Emma Thompson</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Dishes -->
+        <section class="dishes">
+            <div class="container">
+                <h2>Our Most Loved Dishes</h2>
+                <p class="section-subtitle">Experience the authentic flavors that have made us a local favorite</p>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663487079569/gGLtCezYpoxwhP8ttbJJaQ/signature-dishes-85bKGgHVRw6wx7ehLHekp6.webp" alt="Signature Dishes" class="dishes-image">
+                <div class="dish-names">
+                    <div class="dish-item">
+                        <h3>Pad Thai</h3>
+                        <p>Authentic recipe, fresh ingredients</p>
+                    </div>
+                    <div class="dish-item">
+                        <h3>Tom Yum Soup</h3>
+                        <p>Authentic recipe, fresh ingredients</p>
+                    </div>
+                    <div class="dish-item">
+                        <h3>Green Curry</h3>
+                        <p>Authentic recipe, fresh ingredients</p>
+                    </div>
+                    <div class="dish-item">
+                        <h3>Mango Sticky Rice</h3>
+                        <p>Authentic recipe, fresh ingredients</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="showPage('menu')">View Menu</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section class="location">
+            <div class="container">
+                <h2>Easy to Find, Hard to Forget</h2>
+                <p class="section-subtitle">Conveniently located and easy to access — perfect for dine-in or takeaway.</p>
+                <div class="location-grid">
+                    <div class="location-info">
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <div>
+                                <h3>Visit Us</h3>
+                                <p>Lot No.10, Kuhara Industrial, Jalan Air Panas, 91000 Tawau, Sabah</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <div>
+                                <h3>Call Us</h3>
+                                <p><a href="tel:+60165766612" style="color: inherit; text-decoration: none;">+60 16 576 6612</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div>
+                                <h3>Hours</h3>
+                                <p>11:30 AM - 10:00 PM Daily</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.7343999999998!2d117.8976586!3d4.2734663!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32159d788d0356ad%3A0x35b6de7c03e571cf!2sThai%20Spoon%20Kitchen%20%26%20Cafe!5e0!3m2!1sen!2smy!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Form -->
+        <section class="lead-form">
+            <div class="container">
+                <h2>Get Special Offers & Updates 🎁</h2>
+                <p class="section-subtitle">Get exclusive discounts and new menu updates.</p>
+                <div class="form-container">
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name (Optional)</label>
+                            <input type="text" id="name" name="name" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+60 123 456 789">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Subscribe for Offers</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atmosphere -->
+        <section class="atmosphere">
+            <div class="container">
+                <h2>More Than Just Food</h2>
+                <div class="atmosphere-grid">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663487079569/gGLtCezYpoxwhP8ttbJJaQ/restaurant-interior-FsztuKSqNPvZcZBCAVys3L.webp" alt="Restaurant Interior" class="atmosphere-image order-2">
+                    <div class="order-1">
+                        <p>Located in Tawau, Sabah, we offer authentic Thai cuisine in a warm, welcoming environment. Open daily from 11:30 AM to 10:00 PM for dine-in and takeaway.</p>
+                        <h3>Open Daily</h3>
+                        <p>11:30 AM - 10:00 PM. Perfect for lunch, dinner, or a casual coffee break with friends.</p>
+                        <h3>Easy to Find</h3>
+                        <p>Located at Lot No.10, Kuhara Industrial, Jalan Air Panas, Tawau. Convenient parking available for all guests.</p>
+                        <h3>Call Ahead</h3>
+                        <p>Phone: <a href="tel:+60165766612" style="color: #d4a574; text-decoration: none;">+60 16 576 6612</a> for reservations or takeaway orders.</p>
+                        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="showPage('menu')">View Menu</button>
+                            <button class="btn btn-secondary" onclick="window.open('https://www.google.com/maps/place/Thai+Spoon+Kitchen+%26+Cafe/@4.2472753,117.855554,17427m/data=!3m1!1e3!4m10!1m2!2m1!1srestaurants!3m6!1s0x32159d788d0356ad:0x35b6de7c03e571cf!8m2!3d4.2734663!4d117.8976586!15sCgtyZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBD3RoYWlfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMTRjVmxVVGxOWlZGWktaVWRqZVdGcVRtNWxSRTUzWTJwS1YxTnNSUkFC4AEA-gEFCJ8BEEc!16s%2Fg%2F11vc87f0zf?entry=ttu', '_blank')">Visit Us Today</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Craving Thai Food Right Now?</h2>
+                <p>Come visit us today and experience authentic flavors that will transport your taste buds to Thailand.</p>
+                <div class="buttons">
+                    <button class="btn btn-primary" onclick="showPage('menu')">View Menu</button>
+                    <button class="btn btn-secondary" onclick="window.open('https://www.google.com/maps/place/Thai+Spoon+Kitchen+%26+Cafe/@4.2472753,117.855554,17427m/data=!3m1!1e3!4m10!1m2!2m1!1srestaurants!3m6!1s0x32159d788d0356ad:0x35b6de7c03e571cf!8m2!3d4.2734663!4d117.8976586!15sCgtyZXN0YXVyYW50c1oNIgtyZXN0YXVyYW50c5IBD3RoYWlfcmVzdGF1cmFudJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMTRjVmxVVGxOWlZGWktaVWRqZVdGcVRtNWxSRTUzWTJwS1YxTnNSUkFC4AEA-gEFCJ8BEEc!16s%2Fg%2F11vc87f0zf?entry=ttu', '_blank')">Visit Us Today</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Menu Page -->
+    <div id="menu-page" class="hidden">
+        <section class="menu-header">
+            <div class="container">
+                <h1>Our Menu</h1>
+                <p>Explore our authentic Thai cuisine with fresh ingredients and bold flavors. All dishes are prepared to order.</p>
+            </div>
+        </section>
+
+        <section style="padding: 3rem 0;">
+            <div class="container">
+                <div class="menu-content">
+                    <div class="menu-categories">
+                        <button class="category-btn active" onclick="switchCategory('fish')">Ikan (Fish)</button>
+                        <button class="category-btn" onclick="switchCategory('crab')">Ketam (Crab)</button>
+                        <button class="category-btn" onclick="switchCategory('meat')">Daging (Meat)</button>
+                        <button class="category-btn" onclick="switchCategory('squid')">Sotong (Squid)</button>
+                        <button class="category-btn" onclick="switchCategory('salad')">Kerabu (Salad)</button>
+                        <button class="category-btn" onclick="switchCategory('tea')">Teh (Tea)</button>
+                        <button class="category-btn" onclick="switchCategory('smoothie')">Jus & Smoothie</button>
+                        <button class="category-btn" onclick="switchCategory('soda')">Soda</button>
+                    </div>
+
+                    <div class="menu-items">
+                        <h2 id="category-title">Ikan (Fish)</h2>
+                        <div id="menu-list"></div>
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #ddd;">
+                            <p style="color: #666; margin-bottom: 1rem;">Ready to order? Call us or visit us in person!</p>
+                            <button class="btn btn-primary" onclick="window.location.href='tel:+60165766612'">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: rgba(193, 122, 107, 0.1); padding: 3rem 0;">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h3 style="color: #d4a574; margin-bottom: 1rem;">Fresh Ingredients</h3>
+                        <p style="color: #666;">We use only the freshest ingredients sourced daily to ensure the best quality in every dish.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #d4a574; margin-bottom: 1rem;">Authentic Recipes</h3>
+                        <p style="color: #666;">Our recipes are inspired by traditional Thai cuisine, prepared by experienced chefs.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #d4a574; margin-bottom: 1rem;">Customizable</h3>
+                        <p style="color: #666;">Have dietary preferences? We can customize most dishes to suit your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Ready to Taste Authentic Thai?</h2>
+                <p>Visit us today or call for takeaway orders</p>
+                <div class="buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='tel:+60165766612'">Call to Order</button>
+                    <button class="btn btn-secondary" onclick="showPage('home')">Back to Home</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <h3>Thai Spoon Kitchen & Cafe</h3>
+                <p>Authentic Thai cuisine in a cozy cafe setting. Fresh ingredients, bold spices, unforgettable flavors.</p>
+            </div>
+            <div>
+                <h3>Hours & Location</h3>
+                <ul>
+                    <li>Open Daily: 11:30 AM - 10:00 PM</li>
+                    <li>Lot No.10, Kuhara Industrial</li>
+                    <li>Jalan Air Panas, 91000 Tawau, Sabah</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><a href="tel:+60165766612">+60 16 576 6612</a></p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Call for reservations or takeaway orders</p>
+            </div>
+        </div>
+        <div class="divider">
+            <p>&copy; 2026 Thai Spoon Kitchen & Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuData = {
+            fish: {
+                title: 'Ikan (Fish)',
+                items: [
+                    { name: 'Ikan Bakar Kicap Manis', price: 'RM 30.00' },
+                    { name: 'Ikan Bakar Tom Yam', price: 'RM 40.00' },
+                    { name: 'Ikan Bakar Three Style', price: 'RM 45.00' },
+                    { name: 'Ikan Stim Halia', price: 'RM 35.00' },
+                    { name: 'Ikan Stim Limau Thai', price: 'RM 38.00' },
+                    { name: 'Ikan Stim Thai', price: 'RM 36.00' },
+                    { name: 'Ikan Kari', price: 'RM 38.00' },
+                    { name: 'Ikan Masak Lemak', price: 'RM 36.00' },
+                    { name: 'Ikan Masak Asam Boi', price: 'RM 35.00' },
+                    { name: 'Ikan Masak Kam Heong', price: 'RM 40.00' },
+                    { name: 'Ikan Goreng Tiga Rasa', price: 'RM 32.00' },
+                    { name: 'Ikan Goreng Salted Egg', price: 'RM 34.00' },
+                    { name: 'Ikan Goreng Thai', price: 'RM 30.00' }
+                ]
+            },
+            crab: {
+                title: 'Ketam (Crab)',
+                items: [
+                    { name: 'Ketam Tiga Rasa', price: 'RM 68.00/600g' },
+                    { name: 'Ketam Masak Lemak', price: 'RM 72.00/600g' },
+                    { name: 'Ketam Kam Heong', price: 'RM 70.00/600g' },
+                    { name: 'Ketam Black Pepper', price: 'RM 75.00/600g' },
+                    { name: 'Ketam Salted Egg', price: 'RM 78.00/600g' },
+                    { name: 'Ketam Goreng Tiga Rasa', price: 'RM 65.00/600g' },
+                    { name: 'Ketam Siam', price: 'RM 80.00/600g' }
+                ]
+            },
+            meat: {
+                title: 'Daging (Meat)',
+                items: [
+                    { name: 'Daging Tumis Pedas Thai', price: 'RM 22.90' },
+                    { name: 'Ayam Tumis Pedas Kicap', price: 'RM 18.90' },
+                    { name: 'Daging Tumis Pedas Thai Pedas Thai', price: 'RM 23.90' }
+                ]
+            },
+            squid: {
+                title: 'Sotong (Squid)',
+                items: [
+                    { name: 'Sotong Bakar', price: 'RM 14.90' },
+                    { name: 'Sotong Goreng Tiga Rasa', price: 'RM 16.90' },
+                    { name: 'Sotong Goreng Tepung', price: 'RM 13.90' },
+                    { name: 'Sotong Goreng Salted Egg', price: 'RM 17.90' }
+                ]
+            },
+            salad: {
+                title: 'Kerabu (Salad)',
+                items: [
+                    { name: 'Kerabu Belacan', price: 'RM 14.90' },
+                    { name: 'Kerabu Kacang Botol', price: 'RM 15.90' },
+                    { name: 'Kerabu Betik', price: 'RM 13.90' },
+                    { name: 'Kerabu Sotong', price: 'RM 16.90' },
+                    { name: 'Kerabu Daging', price: 'RM 17.90' },
+                    { name: 'Kerabu Pokok', price: 'RM 12.90' }
+                ]
+            },
+            tea: {
+                title: 'Teh (Tea)',
+                items: [
+                    { name: 'Teh Tarik Panas', price: 'RM 5.90' },
+                    { name: 'Teh Tarik Ais', price: 'RM 6.90' },
+                    { name: 'Teh Tarik Float', price: 'RM 10.90' }
+                ]
+            },
+            smoothie: {
+                title: 'Jus & Smoothie (Juice & Smoothie)',
+                items: [
+                    { name: 'Smoothie Pisang Karamel', price: 'RM 16.00' },
+                    { name: 'Smoothie Buah Markisa', price: 'RM 18.00' },
+                    { name: 'Smoothie Buah Naga', price: 'RM 19.00' },
+                    { name: 'Jus Buah', price: 'RM 10.00' },
+                    { name: 'Smoothie Mangga', price: 'RM 18.00' },
+                    { name: 'Smoothie Strawberry', price: 'RM 19.90' },
+                    { name: 'Smoothie Latte', price: 'RM 18.90' },
+                    { name: 'Smoothie Buah Cempedak', price: 'RM 18.90' },
+                    { name: 'Smoothie Jambu', price: 'RM 16.90' }
+                ]
+            },
+            soda: {
+                title: 'Soda (Soda)',
+                items: [
+                    { name: 'Soda Buah Naga', price: 'RM 10.90' },
+                    { name: 'Soda Buah Terung', price: 'RM 10.90' },
+                    { name: 'Soda Buah Belimbing', price: 'RM 10.90' },
+                    { name: 'Soda Limau', price: 'RM 9.90' },
+                    { name: 'Soda Buah Mangga', price: 'RM 10.90' },
+                    { name: 'Soda Buah Strawberry', price: 'RM 10.90' },
+                    { name: 'Soda Buah Kersen', price: 'RM 10.90' },
+                    { name: 'Soda Buah Blueberry', price: 'RM 10.90' }
+                ]
+            }
+        };
+
+        function showPage(page) {
+            document.getElementById('home-page').classList.toggle('hidden', page !== 'home');
+            document.getElementById('menu-page').classList.toggle('hidden', page !== 'menu');
+            window.scrollTo(0, 0);
+        }
+
+        function switchCategory(category) {
+            const data = menuData[category];
+            document.getElementById('category-title').textContent = data.title;
+            
+            const menuList = document.getElementById('menu-list');
+            menuList.innerHTML = data.items.map(item => `
+                <div class="menu-item">
+                    <span class="menu-item-name">${item.name}</span>
+                    <span class="menu-item-price">${item.price}</span>
+                </div>
+            `).join('');
+
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            if (email) {
+                alert('Thank you! We\'ll send you special offers soon.');
+                document.querySelector('form').reset();
+            }
+        }
+
+        // Initialize menu on page load
+        window.addEventListener('load', () => {
+            switchCategory('fish');
+        });
+    </script>
+</body>
+</html>
